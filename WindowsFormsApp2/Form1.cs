@@ -16,34 +16,38 @@ namespace WindowsFormsApp2
 {
     public partial class Form1 : Form
     {
+
+        private HTML html = new HTML();
+        private Mail mail;
+        private BindingList<Task> TaskList = new BindingList<Task>();
+
         public Form1()
         {
             InitializeComponent();
             Log.log("\r\nProgram_start ", "yyyy.MM.dd HH:mm:ss");
         }
 
-        private HTML html = new HTML();
-        private Mail mail;
-
-        private BindingList<Task> TaskList = new BindingList<Task>();
-      
-
         private void button1_Click(object sender, EventArgs e)
         {
             Stanlabel.Text = "";
             var mailcounter = 0;
-            var taskcounter = 0;
-            foreach (Task task in TaskList) {
-                taskcounter++;
+
+            foreach (Task task in TaskList)
+            {
                 Stanlabel.Text = "Proszę czekać...";
                 this.Refresh();
-
                 //logika
                 try
                 {
                     html.LoadHtml(task.Url);
-                } 
-                catch(UriFormatException msg)
+                    var attachmentURL = Searcher.SearchForSpecificString(task.Text, html.Doc);
+                    mail = new Mail(task.Mail);
+                    mail.SendEmail(attachmentURL);
+                    Stanlabel.Text = "Gotowe!";
+                    this.Refresh();
+                    mailcounter++;
+                }
+                catch (UriFormatException msg)
                 {
                     Stanlabel.Text = "Bład!\r\n";
                     Stanlabel.Text += "Sprobuj podac adres strony w postaci https://...";
@@ -51,39 +55,29 @@ namespace WindowsFormsApp2
                     Log.log("exception_caught: " + msg + ", email_not_sent", "HH:mm:ss");
                     return;
                 }
-                var attachmentURL = Searcher.SearchForSpecificString(task.Text, html.Doc);
-                if (attachmentURL != "")
+                catch (ArgumentNullException msg)
                 {
-                    mail = new Mail(task.Mail);
-                    try
-                    {
-                        mail.SendEmail(attachmentURL);
-                        Stanlabel.Text = "Gotowe!";
-                        this.Refresh();
-                        mailcounter++;
-                    }
-                    catch (ArgumentNullException msg)
-                    {
-                        Stanlabel.Text = "Ups, cos poszlo nie tak :( Sprawdz log :)";
-                        this.Refresh();
-                        Log.log("exception_caught: " + msg + ", email_not_sent", "HH:mm:ss");
-                    }
-                    catch (WebException msg)
-                    {
-                        Stanlabel.Text = "Ups, cos poszlo nie tak :( Sprawdz log :)";
-                        this.Refresh();
-                        Log.log("exception_caught: " + msg + ", email_not_sent", "HH:mm:ss");
-                    }                    
-                } else
+                    Stanlabel.Text = "Ups, cos poszlo nie tak :( Sprawdz log :)";
+                    this.Refresh();
+                    Log.log("exception_caught: " + msg + ", email_not_sent", "HH:mm:ss");
+                }
+                catch (WebException msg)
+                {
+                    Stanlabel.Text = "Ups, cos poszlo nie tak :( Sprawdz log :)";
+                    this.Refresh();
+                    Log.log("exception_caught: " + msg + ", email_not_sent", "HH:mm:ss");
+                }
+                catch (ArgumentException msg)
                 {
                     Stanlabel.Text = "Nie znaleziono stringa :(";
                     this.Refresh();
-                }            
+                    Log.log("exception_caught: " + msg, "HH:mm:ss");
+                }
             }
 
-            Stanlabel.Text = Stanlabel.Text + " Wysłano maili: " + mailcounter.ToString();
-            Stanlabel.Text += ". Liczba tasków: " + taskcounter.ToString();
-            Stanlabel.Text += Stanlabel.Text + " \r\nSprawdź log dla dokładniejszych informacji :)";
+            Stanlabel.Text = Stanlabel.Text + "\r\nWysłano maili: " + mailcounter.ToString();
+            Stanlabel.Text += ". Liczba tasków: " + TaskList.Count;
+            Stanlabel.Text += " \r\nSprawdź log dla dokładniejszych informacji :)";
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -100,6 +94,7 @@ namespace WindowsFormsApp2
 
         private void Czyscbutton_Click(object sender, EventArgs e)
         {
+            Stanlabel.Text = "";
             TaskList.Clear();
             Tasklistbox.DataSource = TaskList;            
         }
