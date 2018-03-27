@@ -29,23 +29,29 @@ namespace WindowsFormsApp2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Log.log("\r\nProgram_start ", "yyyy.MM.dd HH:mm:ss");
-            html.LoadHtml(textBox1.Text);
-            var attachmentURL = Searcher.SearchForSpecificString(textBox2.Text, html.Doc);
 
+            Log.log("\r\nProgram_start ", "yyyy.MM.dd HH:mm:ss");
+            Stanlabel.Text = "Proszę czekać...";           
+            this.Refresh();
+
+            html.LoadHtml(URLTextbox.Text);
+            var attachmentURL = Searcher.SearchForSpecificString(TextTextbox.Text, html.Doc);            
             if (attachmentURL != "")
             {
-                mail = new Mail(textBox3.Text);
-                mail.SendEmail(attachmentURL);
+                mail = new Mail(MailTextbox.Text);
+                mail.SendEmail(attachmentURL);              
             }
 
+            Stanlabel.Text = "Gotowe!";
+            Wykonajbutton.Click += button1_Click;
+            this.Refresh();
             Log.log("Program_end ", "HH:mm:ss");
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             //string[] tab= new string[3];
-            string[] tab = { textBox1.Text, textBox2.Text, textBox3.Text };
+            string[] tab = { URLTextbox.Text, TextTextbox.Text, MailTextbox.Text };
             //Proceses.Add(tab);
         }
     }
