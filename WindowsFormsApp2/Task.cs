@@ -8,10 +8,16 @@ namespace WindowsFormsApp2
 {
     class Task
     {
-        string[] Array;
-        public Task()
-        {
-            Array = new string[3];
+        string name;
+        string url;
+        string text;
+        string mail;
+        public Task(string _name, string _url, string _text, string _mail)
+        {            
+            name = _name;
+            url = _url;
+            text = _text;
+            mail = _mail;
         }
 
     }

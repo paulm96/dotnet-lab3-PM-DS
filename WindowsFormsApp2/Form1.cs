@@ -24,7 +24,7 @@ namespace WindowsFormsApp2
         private HTML html = new HTML();
         private Mail mail;
 
-        List <Task> Proceses =new List<Task>();
+        private BindingList<Task> TaskList = new BindingList<Task>();
       
 
         private void button1_Click(object sender, EventArgs e)
@@ -51,8 +51,15 @@ namespace WindowsFormsApp2
         private void button2_Click(object sender, EventArgs e)
         {
             //string[] tab= new string[3];
-            string[] tab = { URLTextbox.Text, TextTextbox.Text, MailTextbox.Text };
-            //Proceses.Add(tab);
+            Task task = new Task(Nazwatextbox.Text, URLTextbox.Text, TextTextbox.Text, MailTextbox.Text);
+            TaskList.Add(task);
+            Tasklistbox.DataSource = TaskList;            
+        }
+
+        private void Czyscbutton_Click(object sender, EventArgs e)
+        {
+            TaskList.Clear();
+            Tasklistbox.DataSource = TaskList;            
         }
     }
 }
