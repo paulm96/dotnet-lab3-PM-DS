@@ -11,6 +11,7 @@ using HtmlAgilityPack;
 using System.Net.Mail;
 using System.Net;
 using System.IO;
+using System.Xml.Serialization;
 
 namespace WindowsFormsApp2
 {
@@ -38,15 +39,22 @@ namespace WindowsFormsApp2
                 mail = new Mail(textBox3.Text);
                 mail.SendEmail(attachmentURL);
             }
-
+            
             Log.log("Program_end ", "HH:mm:ss");
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             //string[] tab= new string[3];
-            string[] tab = { textBox1.Text, textBox2.Text, textBox3.Text };
+            Task[] tab = { textBox1.Text, textBox2.Text, textBox3.Text };
             //Proceses.Add(tab);
+        }
+
+        public void SerializationObject ()
+        {
+            html.LoadHtml();
+            mail.SendEmail();
+            mail.
         }
     }
 }
