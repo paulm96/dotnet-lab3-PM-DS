@@ -44,27 +44,27 @@ namespace WindowsFormsApp2
 
         public void SendEmail(string attachmentURL)
         {
-            try
-            {
+            //try
+            //{
                 var stream = new WebClient().OpenRead(attachmentURL);
                 Log.log("atachment_loaded: " + attachmentURL, "HH:mm:ss");
-                Attachment attachment = new Attachment(stream, "");
+                Attachment attachment = new Attachment(stream, "att.jpeg");
                 message.Attachments.Add(attachment);
                 Log.log("attachment_added", "HH:mm:ss");
-            }
-            catch ( ArgumentNullException msg)
-            {
-                Log.log("exception_caught: " + msg + ", email_not_sent" , "HH:mm:ss");
-                return;
-            }
-            catch (WebException msg)
-            {
-                Log.log("exception_caught: " + msg + ", email_not_sent" , "HH:mm:ss");
-                return;
-            }
-          
-            smtp.Send(message);
-            Log.log("email_sent", "HH:mm:ss");
+                smtp.Send(message);
+                Log.log("email_sent", "HH:mm:ss");
+            //}
+            //catch ( ArgumentNullException msg)
+            //{
+            //    Log.log("exception_caught: " + msg + ", email_not_sent" , "HH:mm:ss");
+            //    return;
+            //}
+            //catch (WebException msg)
+            //{            
+            //    Log.log("exception_caught: " + msg + ", email_not_sent" , "HH:mm:ss");
+            //    return;
+            //}
+         
         }
 
 

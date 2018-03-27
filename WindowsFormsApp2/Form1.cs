@@ -19,6 +19,7 @@ namespace WindowsFormsApp2
         public Form1()
         {
             InitializeComponent();
+            Log.log("\r\nProgram_start ", "yyyy.MM.dd HH:mm:ss");
         }
 
         private HTML html = new HTML();
@@ -29,31 +30,72 @@ namespace WindowsFormsApp2
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Stanlabel.Text = "";
+            var mailcounter = 0;
+            var taskcounter = 0;
+            foreach (Task task in TaskList) {
+                taskcounter++;
+                Stanlabel.Text = "Proszę czekać...";
+                this.Refresh();
 
-            Log.log("\r\nProgram_start ", "yyyy.MM.dd HH:mm:ss");
-            Stanlabel.Text = "Proszę czekać...";           
-            this.Refresh();
-
-            html.LoadHtml(URLTextbox.Text);
-            var attachmentURL = Searcher.SearchForSpecificString(TextTextbox.Text, html.Doc);            
-            if (attachmentURL != "")
-            {
-                mail = new Mail(MailTextbox.Text);
-                mail.SendEmail(attachmentURL);              
+                //logika
+                try
+                {
+                    html.LoadHtml(task.Url);
+                } 
+                catch(UriFormatException msg)
+                {
+                    Stanlabel.Text = "Bład!\r\n";
+                    Stanlabel.Text += "Sprobuj podac adres strony w postaci https://...";
+                    this.Refresh();
+                    Log.log("exception_caught: " + msg + ", email_not_sent", "HH:mm:ss");
+                    return;
+                }
+                var attachmentURL = Searcher.SearchForSpecificString(task.Text, html.Doc);
+                if (attachmentURL != "")
+                {
+                    mail = new Mail(task.Mail);
+                    try
+                    {
+                        mail.SendEmail(attachmentURL);
+                        Stanlabel.Text = "Gotowe!";
+                        this.Refresh();
+                        mailcounter++;
+                    }
+                    catch (ArgumentNullException msg)
+                    {
+                        Stanlabel.Text = "Ups, cos poszlo nie tak :( Sprawdz log :)";
+                        this.Refresh();
+                        Log.log("exception_caught: " + msg + ", email_not_sent", "HH:mm:ss");
+                    }
+                    catch (WebException msg)
+                    {
+                        Stanlabel.Text = "Ups, cos poszlo nie tak :( Sprawdz log :)";
+                        this.Refresh();
+                        Log.log("exception_caught: " + msg + ", email_not_sent", "HH:mm:ss");
+                    }                    
+                } else
+                {
+                    Stanlabel.Text = "Nie znaleziono stringa :(";
+                    this.Refresh();
+                }            
             }
 
-            Stanlabel.Text = "Gotowe!";
-            Wykonajbutton.Click += button1_Click;
-            this.Refresh();
-            Log.log("Program_end ", "HH:mm:ss");
+            Stanlabel.Text = Stanlabel.Text + " Wysłano maili: " + mailcounter.ToString();
+            Stanlabel.Text += ". Liczba tasków: " + taskcounter.ToString();
+            Stanlabel.Text += Stanlabel.Text + " \r\nSprawdź log dla dokładniejszych informacji :)";
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //string[] tab= new string[3];
-            Task task = new Task(Nazwatextbox.Text, URLTextbox.Text, TextTextbox.Text, MailTextbox.Text);
-            TaskList.Add(task);
-            Tasklistbox.DataSource = TaskList;            
+            if (Nazwatextbox.Text == "" || URLTextbox.Text == "" || TextTextbox.Text == "" || MailTextbox.Text == "")
+                Stanlabel.Text = "Żadne pole nie powinno być puste!";
+            else
+            {
+                Task task = new Task(Nazwatextbox.Text, URLTextbox.Text, TextTextbox.Text, MailTextbox.Text);
+                TaskList.Add(task);
+                Tasklistbox.DataSource = TaskList;
+            }
         }
 
         private void Czyscbutton_Click(object sender, EventArgs e)

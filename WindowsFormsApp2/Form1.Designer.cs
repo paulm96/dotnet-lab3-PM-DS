@@ -198,9 +198,9 @@
             this.Nazwalabel.AutoSize = true;
             this.Nazwalabel.Location = new System.Drawing.Point(99, 276);
             this.Nazwalabel.Name = "Nazwalabel";
-            this.Nazwalabel.Size = new System.Drawing.Size(75, 13);
+            this.Nazwalabel.Size = new System.Drawing.Size(72, 13);
             this.Nazwalabel.TabIndex = 17;
-            this.Nazwalabel.Text = "Nazwa tekstu:";
+            this.Nazwalabel.Text = "Nazwa tasku:";
             // 
             // Nazwatextbox
             // 
@@ -221,17 +221,16 @@
             // Stanlabel
             // 
             this.Stanlabel.AutoSize = true;
-            this.Stanlabel.Location = new System.Drawing.Point(388, 307);
+            this.Stanlabel.Location = new System.Drawing.Point(479, 265);
             this.Stanlabel.Name = "Stanlabel";
-            this.Stanlabel.Size = new System.Drawing.Size(41, 13);
+            this.Stanlabel.Size = new System.Drawing.Size(0, 13);
             this.Stanlabel.TabIndex = 20;
-            this.Stanlabel.Text = "label10";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(729, 335);
+            this.ClientSize = new System.Drawing.Size(767, 335);
             this.Controls.Add(this.Stanlabel);
             this.Controls.Add(this.DeSerialbutton);
             this.Controls.Add(this.Nazwatextbox);

@@ -12,12 +12,24 @@ namespace WindowsFormsApp2
         string url;
         string text;
         string mail;
+
         public Task(string _name, string _url, string _text, string _mail)
         {            
-            name = _name;
-            url = _url;
-            text = _text;
-            mail = _mail;
+            Name = _name;
+            Url = _url;
+            Text = _text;
+            Mail = _mail;
+        }
+
+        public string Name { get => name; set => name = value; }
+        public string Url { get => url; set => url = value; }
+        public string Text { get => text; set => text = value; }
+        public string Mail { get => mail; set => mail = value; }
+
+        public override string ToString()
+        {
+            return string.Format("{0}, {1} {2} {3}",
+                "Name task: " + this.Name, "URL: " + this.Url, "String: " + this.Text, "E-mail: " + this.Mail);
         }
 
     }

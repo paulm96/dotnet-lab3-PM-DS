@@ -21,8 +21,7 @@ namespace WindowsFormsApp2
                         Log.log("string_found: " + key, "HH:mm:ss");
                         return attachmentURL;
                     }
-                }
-
+                }               
                 Log.log("string_not_found: " + key, "HH:mm:ss");
                 return "";
         }
