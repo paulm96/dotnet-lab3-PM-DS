@@ -25,36 +25,69 @@ namespace WindowsFormsApp2
         private HTML html = new HTML();
         private Mail mail;
 
-        List <Task> Proceses =new List<Task>();
+        private BindingList<Task> TaskList = new BindingList<Task>();
       
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Log.log("\r\nProgram_start ", "yyyy.MM.dd HH:mm:ss");
-            html.LoadHtml(textBox1.Text);
-            var attachmentURL = Searcher.SearchForSpecificString(textBox2.Text, html.Doc);
 
+            Log.log("\r\nProgram_start ", "yyyy.MM.dd HH:mm:ss");
+            Stanlabel.Text = "Proszę czekać...";           
+            this.Refresh();
+
+            html.LoadHtml(URLTextbox.Text);
+            var attachmentURL = Searcher.SearchForSpecificString(TextTextbox.Text, html.Doc);            
             if (attachmentURL != "")
             {
-                mail = new Mail(textBox3.Text);
-                mail.SendEmail(attachmentURL);
+                mail = new Mail(MailTextbox.Text);
+                mail.SendEmail(attachmentURL);              
             }
-            
+
+            Stanlabel.Text = "Gotowe!";
+            Wykonajbutton.Click += button1_Click;
+            this.Refresh();
             Log.log("Program_end ", "HH:mm:ss");
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             //string[] tab= new string[3];
-            Task[] tab = { textBox1.Text, textBox2.Text, textBox3.Text };
-            //Proceses.Add(tab);
+
+            Task task = new Task(Nazwatextbox.Text, URLTextbox.Text, TextTextbox.Text, MailTextbox.Text);
+            TaskList.Add(task);
+            Tasklistbox.DataSource = TaskList;            
         }
 
-        public void SerializationObject ()
+        private void Czyscbutton_Click(object sender, EventArgs e)
         {
-            html.LoadHtml();
-            mail.SendEmail();
-            mail.
+            TaskList.Clear();
+            Tasklistbox.DataSource = TaskList;            
+        }
+
+        public void SerializationObject (string filename)
+        {
+
+            XmlSerializer serializer =
+     new XmlSerializer(typeof(Task));
+
+            Task i = new Task();
+
+            foreach (Task element in TaskList) {
+               i.Mail=element.Mail;
+                i.Name=element.Name;
+                i.Text=element.Text;
+                i.Url=element.Url;
+
+                Stream writer = new FileStream(filename, FileMode.Create);
+                serializer.Serialize(writer, i);
+                writer.Close();
+            }
+
+        }
+
+        private void Serialbutton_Click(object sender, EventArgs e)
+        {
+            SerializationObject("serial.xml");
         }
     }
 }

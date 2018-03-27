@@ -18,7 +18,7 @@ namespace WindowsFormsApp2
         public Mail(string email)
         {
             var fromAddress = new MailAddress("krzysztof.kowlaczek1@gmail.com");
-            var fromPassword = "password";
+            var fromPassword = "masakra7";
             var toAddress = new MailAddress(email);
 
             smtp = new System.Net.Mail.SmtpClient

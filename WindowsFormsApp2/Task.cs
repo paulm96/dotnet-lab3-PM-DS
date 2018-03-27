@@ -6,13 +6,23 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp2
 {
-    class Task
+    public class Task
     {
-        string[] Array;
-        public Task()
+        string name;
+        string url;
+        string text;
+        string mail;
+        public Task(string _name, string _url, string _text, string _mail)
         {
-            Array = new string[3];
+            Name = _name;
+            Url = _url;
+            Text = _text;
+            Mail = _mail;
         }
-
+        public Task() {}
+        public string Name { get => name; set => name = value; }
+        public string Url { get => url; set => url = value; }
+        public string Text { get => text; set => text = value; }
+        public string Mail { get => mail; set => mail = value; }
     }
 }
