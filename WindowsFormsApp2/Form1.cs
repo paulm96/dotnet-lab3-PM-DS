@@ -24,11 +24,8 @@ namespace WindowsFormsApp2
         private HTML html = new HTML();
         private Mail mail;
 
-       
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
+        List <Task> Proceses =new List<Task>();
+      
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -45,6 +42,11 @@ namespace WindowsFormsApp2
             Log.log("Program_end ", "HH:mm:ss");
         }
 
-    
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //string[] tab= new string[3];
+            string[] tab = { textBox1.Text, textBox2.Text, textBox3.Text };
+            //Proceses.Add(tab);
+        }
     }
 }

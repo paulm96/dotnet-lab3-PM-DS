@@ -8,5 +8,11 @@ namespace WindowsFormsApp2
 {
     class Task
     {
+        string[] Array;
+        public Task()
+        {
+            Array = new string[3];
+        }
+
     }
 }

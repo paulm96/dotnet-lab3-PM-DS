@@ -144,7 +144,6 @@
             this.label8.Size = new System.Drawing.Size(38, 13);
             this.label8.TabIndex = 11;
             this.label8.Text = "E-mail:";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // button1
             // 
@@ -172,6 +171,7 @@
             this.button2.TabIndex = 14;
             this.button2.Text = "Dodaj do listy ";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
