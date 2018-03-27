@@ -70,18 +70,19 @@ namespace WindowsFormsApp2
             XmlSerializer serializer =
      new XmlSerializer(typeof(Task));
 
-            Task i = new Task();
-
+        /// /   Task i = new Task();
+            Stream writer = new FileStream(filename, FileMode.Create);
             foreach (Task element in TaskList) {
-               i.Mail=element.Mail;
-                i.Name=element.Name;
-                i.Text=element.Text;
-                i.Url=element.Url;
+               //i.Mail=element.Mail;
+                //i.Name=element.Name;
+                //i.Text=element.Text;
+                //i.Url=element.Url;
 
-                Stream writer = new FileStream(filename, FileMode.Create);
-                serializer.Serialize(writer, i);
-                writer.Close();
+               
+                serializer.Serialize(writer, element);
+               
             }
+            writer.Close();
 
         }
 
