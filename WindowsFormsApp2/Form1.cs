@@ -12,6 +12,7 @@ using System.Net.Mail;
 using System.Net;
 using System.IO;
 using System.Xml.Serialization;
+using System.Xml;
 
 namespace WindowsFormsApp2
 {
@@ -89,6 +90,39 @@ namespace WindowsFormsApp2
         private void Serialbutton_Click(object sender, EventArgs e)
         {
             SerializationObject("serial.xml");
+        }
+
+        public void Deserialization_object(string file)
+        {
+            
+            XmlSerializer serializer = new
+            XmlSerializer(typeof(Task));
+            FileStream fs = new FileStream(file, FileMode.Open);
+            XmlReader reader = XmlReader.Create(fs);
+
+            Task i;
+
+            // Use the Deserialize method to restore the object's state.
+            i = (Task)serializer.Deserialize(reader);
+
+            Task proc = new Task (i.Name,i.Url,i.Text,i.Mail );
+            TaskList.Add(proc);
+            Tasklistbox.DataSource = TaskList;
+
+            label1.Text= (
+             i.Name + "\t" +
+             i.Url + "\t" +
+             i.Text + "\t" +
+             i.Mail + "\t");
+            fs.Close();
+
+        }
+
+
+
+        private void DeSerialbutton_Click_1(object sender, EventArgs e)
+        {
+                Deserialization_object("serial.xml");
         }
     }
 }
