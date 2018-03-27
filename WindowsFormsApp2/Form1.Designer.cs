@@ -40,6 +40,13 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -106,7 +113,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(201, 240);
+            this.textBox3.Location = new System.Drawing.Point(200, 240);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(219, 20);
             this.textBox3.TabIndex = 7;
@@ -132,7 +139,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(142, 243);
+            this.label8.Location = new System.Drawing.Point(136, 243);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(38, 13);
             this.label8.TabIndex = 11;
@@ -141,19 +148,86 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(345, 280);
+            this.button1.Location = new System.Drawing.Point(482, 190);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(75, 55);
             this.button1.TabIndex = 12;
             this.button1.Text = "Wykonaj";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(482, 92);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(235, 95);
+            this.listBox1.TabIndex = 13;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(243, 302);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(117, 23);
+            this.button2.TabIndex = 14;
+            this.button2.Text = "Dodaj do listy ";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(642, 219);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 26);
+            this.button3.TabIndex = 15;
+            this.button3.Text = "Serialize";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(561, 190);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 55);
+            this.button4.TabIndex = 16;
+            this.button4.Text = "Czyść";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(99, 276);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(75, 13);
+            this.label9.TabIndex = 17;
+            this.label9.Text = "Nazwa tekstu:";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(200, 276);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(218, 20);
+            this.textBox4.TabIndex = 18;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(642, 190);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 26);
+            this.button5.TabIndex = 19;
+            this.button5.Text = "De Serialize";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(548, 335);
+            this.ClientSize = new System.Drawing.Size(729, 335);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -187,6 +261,13 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Button button5;
     }
 }
 
