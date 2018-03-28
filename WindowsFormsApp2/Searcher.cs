@@ -18,7 +18,7 @@ namespace WindowsFormsApp2
                     if (node.GetAttributeValue("alt", "").Contains(key))
                     {
                         string attachmentURL = node.GetAttributeValue("src", "");
-                        Log.log("string_found: " + key, "HH:mm:ss");
+                        Log.log("string_found: " + key + ", attachment url: " + attachmentURL, "HH:mm:ss");
                         return attachmentURL;
                     }
                 }

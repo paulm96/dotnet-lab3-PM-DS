@@ -46,7 +46,7 @@ namespace WindowsFormsApp2
         {
                 var stream = new WebClient().OpenRead(attachmentURL);
                 Log.log("atachment_loaded: " + attachmentURL, "HH:mm:ss");
-                Attachment attachment = new Attachment(stream, "att.jpeg");
+                Attachment attachment = new Attachment(stream, "att.jpg");
                 message.Attachments.Add(attachment);
                 Log.log("attachment_added", "HH:mm:ss");
                 smtp.Send(message);
