@@ -67,23 +67,26 @@ namespace WindowsFormsApp2
 
         public void SerializationObject (string filename)
         {
+            FileStream fs = new FileStream(filename, FileMode.Create);
+            XmlSerializer serializer = new XmlSerializer(typeof(BindingList<Task>));
 
-            XmlSerializer serializer =
-     new XmlSerializer(typeof(Task));
-
-        /// /   Task i = new Task();
-            Stream writer = new FileStream(filename, FileMode.Create);
-            foreach (Task element in TaskList) {
-               //i.Mail=element.Mail;
+            /// /   Task i = new Task();
+            // Stream writer = new FileStream(filename, FileMode.Create);
+            // foreach (Task element in TaskList)
+            //{
+                //i.Mail=element.Mail;
                 //i.Name=element.Name;
                 //i.Text=element.Text;
                 //i.Url=element.Url;
 
-               
-                serializer.Serialize(writer, element);
-               
-            }
-            writer.Close();
+                serializer.Serialize(fs,TaskList);
+           // }
+            fs.Close();
+            // serializer.Serialize(writer, element);
+
+            
+            // writer.Close();
+            
 
         }
 
@@ -97,25 +100,36 @@ namespace WindowsFormsApp2
             
             XmlSerializer serializer = new
             XmlSerializer(typeof(Task));
-            FileStream fs = new FileStream(file, FileMode.Open);
-            XmlReader reader = XmlReader.Create(fs);
-
-            Task i;
+            FileStream fs = new FileStream(@file, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+            //XmlReader reader = XmlReader.Create(fs);
+            XmlSerializer xs = new XmlSerializer(typeof(BindingList<Task>));
+            //Task i;
 
             // Use the Deserialize method to restore the object's state.
-            i = (Task)serializer.Deserialize(reader);
+            //i = (Task)serializer.Deserialize(reader);
 
-            Task proc = new Task (i.Name,i.Url,i.Text,i.Mail );
-            TaskList.Add(proc);
+            // Task proc = new Task (i.Name,i.Url,i.Text,i.Mail );
+            //TaskList.Add(proc);
+            //Tasklistbox.DataSource = TaskList;
+            BindingList<Task> proc = (BindingList<Task>)xs.Deserialize(fs);
+            foreach (Task p in proc)
+            {
+                TaskList.Add(p);
+            }
+            //label1.Text = TaskList.Count().ToString();
             Tasklistbox.DataSource = TaskList;
-
-            label1.Text= (
-             i.Name + "\t" +
-             i.Url + "\t" +
-             i.Text + "\t" +
-             i.Mail + "\t");
+            foreach (Task elem in TaskList)
+            {
+                /*label1.Text += (
+                  elem.Name + "\t" +
+                  elem.Url + "\t" +
+                  elem.Text + "\t" +
+                  elem.Mail + "\t");
+                  */
+                label1.Text += (elem.Name + "\t");
+            }
             fs.Close();
-
+            
         }
 
 
