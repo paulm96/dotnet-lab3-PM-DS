@@ -107,6 +107,8 @@ namespace WindowsFormsApp2
             XmlSerializer serializer = new XmlSerializer(typeof(BindingList<Task>));
             serializer.Serialize(fs, TaskList);
             fs.Close();
+            Log.log("serialization BindingList ", "HH:mm:ss");
+            Stanlabel.Text = "Wykonano serializację";
         }
 
 
@@ -123,6 +125,8 @@ namespace WindowsFormsApp2
             }
             Tasklistbox.DataSource = TaskList;
             fs.Close();
+            Log.log("deserialization BindingList ", "HH:mm:ss");
+            Stanlabel.Text = "Wykonano deserializację";
         }
     }
 }
