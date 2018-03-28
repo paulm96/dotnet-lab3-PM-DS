@@ -1,4 +1,6 @@
-﻿using System;
+﻿//Autorzy Mordal Paweł, Damian Szczepański
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
