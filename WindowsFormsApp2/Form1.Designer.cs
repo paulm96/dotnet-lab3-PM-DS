@@ -48,6 +48,7 @@
             this.Nazwatextbox = new System.Windows.Forms.TextBox();
             this.DeSerialbutton = new System.Windows.Forms.Button();
             this.Stanlabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Jezelilabel
@@ -182,6 +183,7 @@
             this.Serialbutton.TabIndex = 15;
             this.Serialbutton.Text = "Serialize";
             this.Serialbutton.UseVisualStyleBackColor = true;
+            this.Serialbutton.Click += new System.EventHandler(this.Serialbutton_Click);
             // 
             // Czyscbutton
             // 
@@ -217,6 +219,7 @@
             this.DeSerialbutton.TabIndex = 19;
             this.DeSerialbutton.Text = "De Serialize";
             this.DeSerialbutton.UseVisualStyleBackColor = true;
+            this.DeSerialbutton.Click += new System.EventHandler(this.DeSerialbutton_Click_1);
             // 
             // Stanlabel
             // 
@@ -225,6 +228,15 @@
             this.Stanlabel.Name = "Stanlabel";
             this.Stanlabel.Size = new System.Drawing.Size(0, 13);
             this.Stanlabel.TabIndex = 20;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(558, 292);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "label1";
             // 
             // Form1
             // 
@@ -280,6 +292,7 @@
         private System.Windows.Forms.TextBox Nazwatextbox;
         private System.Windows.Forms.Button DeSerialbutton;
         private System.Windows.Forms.Label Stanlabel;
+        private System.Windows.Forms.Label label1;
     }
 }
 
