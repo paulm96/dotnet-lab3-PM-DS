@@ -20,10 +20,9 @@ namespace WindowsFormsApp2
 {
     public partial class Form1 : Form
     {
-
         private HTML html = new HTML();
         private Mail mail;
-        private BindingList<Task> TaskList = new BindingList<Task>();
+        private BindingList<ITask> TaskList = new BindingList<ITask>();
 
         public Form1()
         {
@@ -33,55 +32,60 @@ namespace WindowsFormsApp2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Stanlabel.Text = "";
-            var mailcounter = 0;
-
-            foreach (Task task in TaskList)
+            foreach (ITask task in TaskList)
             {
-                Stanlabel.Text = "Proszę czekać...";
-                this.Refresh();
-                //logika
-                try
-                {
-                    html.LoadHtml(task.Url);
-                    var attachmentURL = Searcher.SearchForSpecificString(task.Text, html.Doc);
-                    mail = new Mail(task.Mail);
-                    mail.SendEmail(attachmentURL);
-                    Stanlabel.Text = "Gotowe!";
-                    this.Refresh();
-                    mailcounter++;
-                }
-                catch (UriFormatException msg)
-                {
-                    Stanlabel.Text = "Bład!\r\n";
-                    Stanlabel.Text += "Sprobuj podac adres strony w postaci https://...";
-                    this.Refresh();
-                    Log.log("exception_caught: " + msg + ", email_not_sent", "HH:mm:ss");
-                    //return;
-                }
-                catch (ArgumentNullException msg)
-                {
-                    Stanlabel.Text = "Ups, cos poszlo nie tak :( Sprawdz log :)";
-                    this.Refresh();
-                    Log.log("exception_caught: " + msg + ", email_not_sent", "HH:mm:ss");
-                }
-                catch (WebException msg)
-                {
-                    Stanlabel.Text = "Ups, cos poszlo nie tak :( Sprawdz log :)";
-                    this.Refresh();
-                    Log.log("exception_caught: " + msg + ", email_not_sent", "HH:mm:ss");
-                }
-                catch (ArgumentException msg)
-                {
-                    Stanlabel.Text = "Nie znaleziono stringa :(";
-                    this.Refresh();
-                    Log.log("exception_caught: " + msg, "HH:mm:ss");
-                }
+                task.Do();
             }
+            
+            //Stanlabel.Text = "";
+            //var mailcounter = 0;
 
-            Stanlabel.Text = Stanlabel.Text + "\r\nWysłano maili: " + mailcounter.ToString();
-            Stanlabel.Text += ". Liczba tasków: " + TaskList.Count;
-            Stanlabel.Text += " \r\nSprawdź log dla dokładniejszych informacji :)";
+            //foreach (Task task in TaskList)
+            //{
+            //    Stanlabel.Text = "Proszę czekać...";
+            //    this.Refresh();
+            //    //logika
+            //    try
+            //    {
+            //        html.LoadHtml(task.Url);
+            //        var attachmentURL = Searcher.SearchForSpecificString(task.Text, html.Doc);
+            //        mail = new Mail(task.Mail);
+            //        mail.SendEmail(attachmentURL);
+            //        Stanlabel.Text = "Gotowe!";
+            //        this.Refresh();
+            //        mailcounter++;
+            //    }
+            //    catch (UriFormatException msg)
+            //    {
+            //        Stanlabel.Text = "Bład!\r\n";
+            //        Stanlabel.Text += "Sprobuj podac adres strony w postaci https://...";
+            //        this.Refresh();
+            //        Log.log("exception_caught: " + msg + ", email_not_sent", "HH:mm:ss");
+            //        //return;
+            //    }
+            //    catch (ArgumentNullException msg)
+            //    {
+            //        Stanlabel.Text = "Ups, cos poszlo nie tak :( Sprawdz log :)";
+            //        this.Refresh();
+            //        Log.log("exception_caught: " + msg + ", email_not_sent", "HH:mm:ss");
+            //    }
+            //    catch (WebException msg)
+            //    {
+            //        Stanlabel.Text = "Ups, cos poszlo nie tak :( Sprawdz log :)";
+            //        this.Refresh();
+            //        Log.log("exception_caught: " + msg + ", email_not_sent", "HH:mm:ss");
+            //    }
+            //    catch (ArgumentException msg)
+            //    {
+            //        Stanlabel.Text = "Nie znaleziono stringa :(";
+            //        this.Refresh();
+            //        Log.log("exception_caught: " + msg, "HH:mm:ss");
+            //    }
+            //}
+
+            //Stanlabel.Text = Stanlabel.Text + "\r\nWysłano maili: " + mailcounter.ToString();
+            //Stanlabel.Text += ". Liczba tasków: " + TaskList.Count;
+            //Stanlabel.Text += " \r\nSprawdź log dla dokładniejszych informacji :)";
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -90,8 +94,10 @@ namespace WindowsFormsApp2
                 Stanlabel.Text = "Żadne pole nie powinno być puste!";
             else
             {
-                Task task = new Task(Nazwatextbox.Text, URLTextbox.Text, TextTextbox.Text, MailTextbox.Text);
-                TaskList.Add(task);
+                ImageSearch imageSearch = new ImageSearch(URLTextbox.Text, TextTextbox.Text);
+                SendEmail sendEmail = new SendEmail(MailTextbox.Text);
+                ITask itask = new ITask(Nazwatextbox.Text ,sendEmail, imageSearch);
+                TaskList.Add(itask);
                 Tasklistbox.DataSource = TaskList;
             }
         }
@@ -106,7 +112,7 @@ namespace WindowsFormsApp2
         private void Serialbutton_Click(object sender, EventArgs e)
         {
             FileStream fs = new FileStream("serial.xml", FileMode.Create);
-            XmlSerializer serializer = new XmlSerializer(typeof(BindingList<Task>));
+            XmlSerializer serializer = new XmlSerializer(typeof(BindingList<ITask>));
             serializer.Serialize(fs, TaskList);
             fs.Close();
             Log.log("serialization BindingList ", "HH:mm:ss");
@@ -119,9 +125,9 @@ namespace WindowsFormsApp2
             TaskList.Clear();
             XmlSerializer serializer = new XmlSerializer(typeof(Task));
             FileStream fs = new FileStream(@"serial.xml", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-            XmlSerializer xs = new XmlSerializer(typeof(BindingList<Task>));
-            BindingList<Task> proc = (BindingList<Task>)xs.Deserialize(fs);
-            foreach (Task p in proc)
+            XmlSerializer xs = new XmlSerializer(typeof(BindingList<ITask>));
+            BindingList<ITask> proc = (BindingList<ITask>)xs.Deserialize(fs);
+            foreach (ITask p in proc)
             {
                 TaskList.Add(p);
             }

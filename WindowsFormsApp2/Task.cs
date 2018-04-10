@@ -14,6 +14,7 @@ namespace WindowsFormsApp2
         string url;
         string text;
         string mail;
+
         public Task(string _name, string _url, string _text, string _mail)
         {
             Name = _name;
@@ -21,6 +22,7 @@ namespace WindowsFormsApp2
             Text = _text;
             Mail = _mail;
         }
+
         public Task() {}
         public string Name { get => name; set => name = value; }
         public string Url { get => url; set => url = value; }
