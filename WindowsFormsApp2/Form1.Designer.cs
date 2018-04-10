@@ -305,7 +305,7 @@
             this.label2.Size = new System.Drawing.Size(247, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Temperatura w tym mieście jest wyższa niż wartość";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+           
             // 
             // textBox1
             // 
@@ -361,7 +361,7 @@
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "Wyślij e-mail";
             this.tabPage3.UseVisualStyleBackColor = true;
-            this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
+           
             // 
             // tabPage4
             // 
@@ -390,7 +390,7 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(235, 95);
             this.listBox1.TabIndex = 1;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            
             // 
             // Form1
             // 
@@ -414,7 +414,7 @@
             this.Controls.Add(this.Jezelilabel);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();

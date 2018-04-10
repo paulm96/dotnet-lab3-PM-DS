@@ -10,6 +10,7 @@ namespace WindowsFormsApp2
 {
     public class Task
     {
+        int id;
         string name;
         string url;
         string text;
@@ -26,6 +27,7 @@ namespace WindowsFormsApp2
         public string Url { get => url; set => url = value; }
         public string Text { get => text; set => text = value; }
         public string Mail { get => mail; set => mail = value; }
+        public int Id { get => id; set => id = value; }
 
         public override string ToString()
         {
