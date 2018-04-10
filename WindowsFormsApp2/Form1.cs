@@ -123,7 +123,7 @@ namespace WindowsFormsApp2
         private void DeSerialbutton_Click_1(object sender, EventArgs e)
         {
             TaskList.Clear();
-            XmlSerializer serializer = new XmlSerializer(typeof(Task));
+            XmlSerializer serializer = new XmlSerializer(typeof(ITask));
             FileStream fs = new FileStream(@"serial.xml", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
             XmlSerializer xs = new XmlSerializer(typeof(BindingList<ITask>));
             BindingList<ITask> proc = (BindingList<ITask>)xs.Deserialize(fs);
