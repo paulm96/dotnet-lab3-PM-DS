@@ -49,6 +49,25 @@
             this.DeSerialbutton = new System.Windows.Forms.Button();
             this.Stanlabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label5 = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.tabControl2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // Jezelilabel
@@ -75,7 +94,7 @@
             // 
             this.Totolabel.AutoSize = true;
             this.Totolabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Totolabel.Location = new System.Drawing.Point(44, 169);
+            this.Totolabel.Location = new System.Drawing.Point(46, 184);
             this.Totolabel.Name = "Totolabel";
             this.Totolabel.Size = new System.Drawing.Size(88, 16);
             this.Totolabel.TabIndex = 2;
@@ -84,7 +103,7 @@
             // Conditionlabel
             // 
             this.Conditionlabel.AutoSize = true;
-            this.Conditionlabel.Location = new System.Drawing.Point(102, 67);
+            this.Conditionlabel.Location = new System.Drawing.Point(6, 9);
             this.Conditionlabel.Name = "Conditionlabel";
             this.Conditionlabel.Size = new System.Drawing.Size(325, 13);
             this.Conditionlabel.TabIndex = 3;
@@ -93,7 +112,7 @@
             // Actionlabel
             // 
             this.Actionlabel.AutoSize = true;
-            this.Actionlabel.Location = new System.Drawing.Point(102, 211);
+            this.Actionlabel.Location = new System.Drawing.Point(6, 3);
             this.Actionlabel.Name = "Actionlabel";
             this.Actionlabel.Size = new System.Drawing.Size(327, 13);
             this.Actionlabel.TabIndex = 4;
@@ -101,21 +120,21 @@
             // 
             // URLTextbox
             // 
-            this.URLTextbox.Location = new System.Drawing.Point(201, 92);
+            this.URLTextbox.Location = new System.Drawing.Point(80, 33);
             this.URLTextbox.Name = "URLTextbox";
             this.URLTextbox.Size = new System.Drawing.Size(219, 20);
             this.URLTextbox.TabIndex = 5;
             // 
             // TextTextbox
             // 
-            this.TextTextbox.Location = new System.Drawing.Point(201, 118);
+            this.TextTextbox.Location = new System.Drawing.Point(80, 59);
             this.TextTextbox.Name = "TextTextbox";
             this.TextTextbox.Size = new System.Drawing.Size(219, 20);
             this.TextTextbox.TabIndex = 6;
             // 
             // MailTextbox
             // 
-            this.MailTextbox.Location = new System.Drawing.Point(200, 240);
+            this.MailTextbox.Location = new System.Drawing.Point(65, 29);
             this.MailTextbox.Name = "MailTextbox";
             this.MailTextbox.Size = new System.Drawing.Size(219, 20);
             this.MailTextbox.TabIndex = 7;
@@ -123,7 +142,7 @@
             // URLlabel
             // 
             this.URLlabel.AutoSize = true;
-            this.URLlabel.Location = new System.Drawing.Point(142, 95);
+            this.URLlabel.Location = new System.Drawing.Point(28, 37);
             this.URLlabel.Name = "URLlabel";
             this.URLlabel.Size = new System.Drawing.Size(32, 13);
             this.URLlabel.TabIndex = 9;
@@ -132,7 +151,7 @@
             // Tekstlabel
             // 
             this.Tekstlabel.AutoSize = true;
-            this.Tekstlabel.Location = new System.Drawing.Point(142, 121);
+            this.Tekstlabel.Location = new System.Drawing.Point(23, 66);
             this.Tekstlabel.Name = "Tekstlabel";
             this.Tekstlabel.Size = new System.Drawing.Size(37, 13);
             this.Tekstlabel.TabIndex = 10;
@@ -141,7 +160,7 @@
             // Emaillabel
             // 
             this.Emaillabel.AutoSize = true;
-            this.Emaillabel.Location = new System.Drawing.Point(136, 243);
+            this.Emaillabel.Location = new System.Drawing.Point(18, 32);
             this.Emaillabel.Name = "Emaillabel";
             this.Emaillabel.Size = new System.Drawing.Size(38, 13);
             this.Emaillabel.TabIndex = 11;
@@ -149,7 +168,7 @@
             // 
             // Wykonajbutton
             // 
-            this.Wykonajbutton.Location = new System.Drawing.Point(482, 190);
+            this.Wykonajbutton.Location = new System.Drawing.Point(500, 176);
             this.Wykonajbutton.Name = "Wykonajbutton";
             this.Wykonajbutton.Size = new System.Drawing.Size(75, 55);
             this.Wykonajbutton.TabIndex = 12;
@@ -160,16 +179,16 @@
             // Tasklistbox
             // 
             this.Tasklistbox.FormattingEnabled = true;
-            this.Tasklistbox.Location = new System.Drawing.Point(482, 92);
+            this.Tasklistbox.Location = new System.Drawing.Point(502, 64);
             this.Tasklistbox.Name = "Tasklistbox";
-            this.Tasklistbox.Size = new System.Drawing.Size(235, 95);
+            this.Tasklistbox.Size = new System.Drawing.Size(235, 108);
             this.Tasklistbox.TabIndex = 13;
             // 
             // Dodajbutton
             // 
-            this.Dodajbutton.Location = new System.Drawing.Point(243, 302);
+            this.Dodajbutton.Location = new System.Drawing.Point(113, 378);
             this.Dodajbutton.Name = "Dodajbutton";
-            this.Dodajbutton.Size = new System.Drawing.Size(117, 23);
+            this.Dodajbutton.Size = new System.Drawing.Size(125, 33);
             this.Dodajbutton.TabIndex = 14;
             this.Dodajbutton.Text = "Dodaj do listy ";
             this.Dodajbutton.UseVisualStyleBackColor = true;
@@ -177,7 +196,7 @@
             // 
             // Serialbutton
             // 
-            this.Serialbutton.Location = new System.Drawing.Point(642, 219);
+            this.Serialbutton.Location = new System.Drawing.Point(662, 205);
             this.Serialbutton.Name = "Serialbutton";
             this.Serialbutton.Size = new System.Drawing.Size(75, 26);
             this.Serialbutton.TabIndex = 15;
@@ -187,7 +206,7 @@
             // 
             // Czyscbutton
             // 
-            this.Czyscbutton.Location = new System.Drawing.Point(561, 190);
+            this.Czyscbutton.Location = new System.Drawing.Point(581, 176);
             this.Czyscbutton.Name = "Czyscbutton";
             this.Czyscbutton.Size = new System.Drawing.Size(75, 55);
             this.Czyscbutton.TabIndex = 16;
@@ -198,7 +217,7 @@
             // Nazwalabel
             // 
             this.Nazwalabel.AutoSize = true;
-            this.Nazwalabel.Location = new System.Drawing.Point(99, 276);
+            this.Nazwalabel.Location = new System.Drawing.Point(110, 355);
             this.Nazwalabel.Name = "Nazwalabel";
             this.Nazwalabel.Size = new System.Drawing.Size(72, 13);
             this.Nazwalabel.TabIndex = 17;
@@ -206,14 +225,14 @@
             // 
             // Nazwatextbox
             // 
-            this.Nazwatextbox.Location = new System.Drawing.Point(200, 276);
+            this.Nazwatextbox.Location = new System.Drawing.Point(179, 352);
             this.Nazwatextbox.Name = "Nazwatextbox";
             this.Nazwatextbox.Size = new System.Drawing.Size(218, 20);
             this.Nazwatextbox.TabIndex = 18;
             // 
             // DeSerialbutton
             // 
-            this.DeSerialbutton.Location = new System.Drawing.Point(642, 190);
+            this.DeSerialbutton.Location = new System.Drawing.Point(662, 174);
             this.DeSerialbutton.Name = "DeSerialbutton";
             this.DeSerialbutton.Size = new System.Drawing.Size(75, 26);
             this.DeSerialbutton.TabIndex = 19;
@@ -238,11 +257,149 @@
             this.label1.TabIndex = 21;
             this.label1.Text = "label1";
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(105, 42);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(371, 130);
+            this.tabControl1.TabIndex = 21;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.Conditionlabel);
+            this.tabPage1.Controls.Add(this.URLTextbox);
+            this.tabPage1.Controls.Add(this.URLlabel);
+            this.tabPage1.Controls.Add(this.Tekstlabel);
+            this.tabPage1.Controls.Add(this.TextTextbox);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(363, 104);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Sprawdź stronę";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.label4);
+            this.tabPage2.Controls.Add(this.label3);
+            this.tabPage2.Controls.Add(this.textBox2);
+            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Controls.Add(this.label2);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(363, 104);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Sprawdź pogodę ";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 3);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(247, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Temperatura w tym mieście jest wyższa niż wartość";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(91, 28);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(160, 20);
+            this.textBox1.TabIndex = 1;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(91, 67);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(162, 20);
+            this.textBox2.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 35);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Miasto:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 67);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(70, 13);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Temperatura:";
+            // 
+            // tabControl2
+            // 
+            this.tabControl2.Controls.Add(this.tabPage3);
+            this.tabControl2.Controls.Add(this.tabPage4);
+            this.tabControl2.Location = new System.Drawing.Point(109, 205);
+            this.tabControl2.Name = "tabControl2";
+            this.tabControl2.SelectedIndex = 0;
+            this.tabControl2.Size = new System.Drawing.Size(364, 129);
+            this.tabControl2.TabIndex = 22;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.Actionlabel);
+            this.tabPage3.Controls.Add(this.MailTextbox);
+            this.tabPage3.Controls.Add(this.Emaillabel);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(356, 103);
+            this.tabPage3.TabIndex = 0;
+            this.tabPage3.Text = "Wyślij e-mail";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.label5);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(356, 103);
+            this.tabPage4.TabIndex = 1;
+            this.tabPage4.Text = "Pokaż komunikat";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(22, 20);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(154, 13);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Wyświetl komunikat na ektanie";
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(502, 247);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(235, 95);
+            this.listBox1.TabIndex = 1;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(767, 335);
+            this.ClientSize = new System.Drawing.Size(770, 413);
+            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.tabControl2);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.Stanlabel);
             this.Controls.Add(this.DeSerialbutton);
             this.Controls.Add(this.Nazwatextbox);
@@ -252,19 +409,22 @@
             this.Controls.Add(this.Dodajbutton);
             this.Controls.Add(this.Tasklistbox);
             this.Controls.Add(this.Wykonajbutton);
-            this.Controls.Add(this.Emaillabel);
-            this.Controls.Add(this.Tekstlabel);
-            this.Controls.Add(this.URLlabel);
-            this.Controls.Add(this.MailTextbox);
-            this.Controls.Add(this.TextTextbox);
-            this.Controls.Add(this.URLTextbox);
-            this.Controls.Add(this.Actionlabel);
-            this.Controls.Add(this.Conditionlabel);
             this.Controls.Add(this.Totolabel);
             this.Controls.Add(this.Tolabel);
             this.Controls.Add(this.Jezelilabel);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            this.tabControl2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -293,6 +453,19 @@
         private System.Windows.Forms.Button DeSerialbutton;
         private System.Windows.Forms.Label Stanlabel;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TabControl tabControl2;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
 
