@@ -90,16 +90,26 @@ namespace WindowsFormsApp2
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (Nazwatextbox.Text == "" || URLTextbox.Text == "" || TextTextbox.Text == "" || MailTextbox.Text == "")
-                Stanlabel.Text = "Żadne pole nie powinno być puste!";
-            else
-            {
-                ImageSearch imageSearch = new ImageSearch(URLTextbox.Text, TextTextbox.Text);
-                SendEmail sendEmail = new SendEmail(MailTextbox.Text);
-                ITask itask = new ITask(Nazwatextbox.Text ,sendEmail, imageSearch);
+            //if (Nazwatextbox.Text == "" || URLTextbox.Text == "" || TextTextbox.Text == "" || MailTextbox.Text == "")
+            //    Stanlabel.Text = "Żadne pole nie powinno być puste!";
+            //else
+            //{
+                ITask itask;
+                if (tabControl1.TabPages[0] == tabControl1.SelectedTab)
+                {
+                    ImageSearch imageSearch = new ImageSearch(URLTextbox.Text, TextTextbox.Text);
+                    SendEmail sendEmail = new SendEmail(MailTextbox.Text);
+                    itask = new ITask(Nazwatextbox.Text, sendEmail, imageSearch);
+                } else
+                {
+                    WeatherChecker weather = new WeatherChecker(textBox1.Text, textBox2.Text);
+                    SendEmail sendEmail = new SendEmail(MailTextbox.Text);
+                    itask = new ITask(Nazwatextbox.Text, sendEmail, weather);
+                }
+                
                 TaskList.Add(itask);
                 Tasklistbox.DataSource = TaskList;
-            }
+            //}
         }
 
         private void Czyscbutton_Click(object sender, EventArgs e)

@@ -86,6 +86,7 @@
     <Compile Include="Task.cs" />
     <Compile Include="TaskDB.cs" />
     <Compile Include="TaskDbInitiializer.cs" />
+    <Compile Include="WeatherChecker.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

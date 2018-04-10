@@ -9,7 +9,7 @@ namespace WindowsFormsApp2
 {
     public class ImageSearch : ICondition
     {
-        private HTML html = new HTML();
+        
         string targetURL;
         string searchedText;
 
@@ -30,6 +30,7 @@ namespace WindowsFormsApp2
 
         public override bool Check()
         {
+            HTML html = new HTML();   //ona byla private tam wyzej jako zmienna klasy
             html.LoadHtml(TargetURL);
             string attachmentURL;
             try
@@ -41,7 +42,7 @@ namespace WindowsFormsApp2
                 return false;
             }
             //File.AppendAllText(@"./atturl.txt", attachmentURL);
-            File.WriteAllText(@"./atturl.txt", attachmentURL);
+            File.WriteAllText(@"./atturl.txt", attachmentURL + "\r\n" + "Znaleziono demota :)");
             return true;
         }
     }

@@ -30,7 +30,7 @@ namespace WindowsFormsApp2
             Mail(Email);            
             using(StreamReader sr = new StreamReader("./atturl.txt"))
             {
-                Send(sr.ReadToEnd());
+                Send(sr.ReadLine(), sr.ReadLine()); //tutaj bylo sr.ReadToEnd();
             }
         }
 
@@ -54,7 +54,7 @@ namespace WindowsFormsApp2
             message.From = new MailAddress(fromAddress.ToString());
             message.To.Add(toAddress);
             message.Subject = "JTTT app";
-            message.Body = "Znaleziono szukany obrazek. Dodano go w załączniku";
+            //message.Body = "Znaleziono szukany obrazek. Dodano go w załączniku";
 
             Log.log("mailbox_setup: krzysztof.kowlaczek1@gmail.com", "HH:mm:ss");
         }
@@ -62,8 +62,9 @@ namespace WindowsFormsApp2
         public MailMessage Message { get => message; set => message = value; }
         public string Email { get => email; set => email = value; }
 
-        public void Send(string attachmentURL)
+        public void Send(string attachmentURL, string msg)
         {
+            message.Body = msg;
             var stream = new WebClient().OpenRead(attachmentURL);
             Log.log("atachment_loaded: " + attachmentURL, "HH:mm:ss");
             Attachment attachment = new Attachment(stream, "att.jpg");
