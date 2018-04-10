@@ -94,18 +94,21 @@ namespace WindowsFormsApp2
             //    Stanlabel.Text = "Żadne pole nie powinno być puste!";
             //else
             //{
-                ITask itask;
-                if (tabControl1.TabPages[0] == tabControl1.SelectedTab)
-                {
-                    ImageSearch imageSearch = new ImageSearch(URLTextbox.Text, TextTextbox.Text);
-                    SendEmail sendEmail = new SendEmail(MailTextbox.Text);
-                    itask = new ITask(Nazwatextbox.Text, sendEmail, imageSearch);
-                } else
-                {
-                    WeatherChecker weather = new WeatherChecker(textBox1.Text, textBox2.Text);
-                    SendEmail sendEmail = new SendEmail(MailTextbox.Text);
-                    itask = new ITask(Nazwatextbox.Text, sendEmail, weather);
-                }
+            IAction akcja;
+            ICondition warunek;
+            ITask itask;
+            if (tabControl1.TabPages[0] == tabControl1.SelectedTab)                
+                warunek = new ImageSearch(URLTextbox.Text, TextTextbox.Text);                    
+            else                
+                warunek = new WeatherChecker(textBox1.Text, textBox2.Text);
+
+            if (tabControl2.TabPages[0] == tabControl2.SelectedTab)
+                akcja = new SendEmail(MailTextbox.Text);
+            else
+                akcja = new DisplayInfo();
+
+            itask = new ITask(Nazwatextbox.Text, akcja, warunek);
+                
                 
                 TaskList.Add(itask);
                 Tasklistbox.DataSource = TaskList;
