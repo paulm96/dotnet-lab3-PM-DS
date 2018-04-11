@@ -18,6 +18,7 @@ namespace WindowsFormsApp2
             new WebClient().DownloadFile(url, "./image.png");
             info.set(description, "./image.png");
             info.Show();
+            info.Refresh();
         }
 
         public override string ToString()
