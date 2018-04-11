@@ -7,9 +7,19 @@ namespace WindowsFormsApp2
         public TaskDB()
             : base("Lista_procesow")
         {
-            Database.SetInitializer(new TaskDbInitiializer());
+            Database.SetInitializer<TaskDB>(new TaskDbInitiializer());
         }
         public DbSet<Task> Tasks { get; set; }
+
+        public void remove()
+        {
+            foreach (Task a in Tasks)
+            {
+                Tasks.Remove(a);
+            }
+        }
+
+       
 
 
 

@@ -11,12 +11,12 @@ namespace WindowsFormsApp2
     public class Task
     {
         public int Id { get; set; }
-        string name;
-        string url;
-        string text;
-        string mail;
+        string name { get; set; }
+        string url { get; set; }
+        string text { get; set; }
+        string mail { get; set; }
 
-        
+
         public Task(string _name, string _url, string _text, string _mail)
         {
             Name = _name;
@@ -35,6 +35,7 @@ namespace WindowsFormsApp2
         {
             return string.Format("{0}, {1} {2} {3}",
                 "Name task: " + this.Name, "URL: " + this.Url, "String: " + this.Text, "E-mail: " + this.Mail);
+            //return "cos";
         }
     }
 }

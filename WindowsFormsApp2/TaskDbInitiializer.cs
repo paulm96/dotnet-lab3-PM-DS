@@ -12,8 +12,9 @@ namespace WindowsFormsApp2
         {
             
             Task task = new Task() { Name = "proces1", Url= "ssdsdas", Mail="damiansz8@interia.pl ", Text="koty za płoty" };
-            // task.Add();
-            
+            context.Tasks.Add(task);         // task.Add();
+
+            context.SaveChanges();
             base.Seed(context);
 
         }

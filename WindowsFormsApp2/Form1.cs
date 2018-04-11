@@ -29,13 +29,28 @@ namespace WindowsFormsApp2
         {
             InitializeComponent();
             Log.log("\r\nProgram_start ", "yyyy.MM.dd HH:mm:ss");
+            var ctx = new TaskDB();
+            foreach (var a in ctx.Tasks )
+            {
+                Console.WriteLine(a);
+                TaskList.Add(a);
+                
+                
+            }
+            Tasklistbox.DataSource = TaskList;
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Stanlabel.Text = "";
             var mailcounter = 0;
-           
+            var ctx = new TaskDB();
+            foreach (var a in ctx.Tasks)
+            {
+                Console.WriteLine(a);
+            }
 
             foreach (Task task in TaskList)
             {
@@ -87,6 +102,7 @@ namespace WindowsFormsApp2
 
         private void button2_Click(object sender, EventArgs e)
         {
+            Console.WriteLine("aasaasdada");
             if (Nazwatextbox.Text == "" || URLTextbox.Text == "" || TextTextbox.Text == "" || MailTextbox.Text == "")
                 Stanlabel.Text = "Żadne pole nie powinno być puste!";
             else
@@ -96,12 +112,16 @@ namespace WindowsFormsApp2
                 TaskList.Add(task);
                 Tasklistbox.DataSource = TaskList;
                 ctx.Tasks.Add(task);
+                ctx.SaveChanges();
 
             }
         }
 
         private void Czyscbutton_Click(object sender, EventArgs e)
         {
+            TaskDB db = new TaskDB();
+            db.remove();
+            db.SaveChanges();
             Stanlabel.Text = "";
             TaskList.Clear();
             Tasklistbox.DataSource = TaskList;            
