@@ -1,40 +1,38 @@
-﻿//Autorzy Mordal Paweł, Damian Szczepański
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace WindowsFormsApp2
 {
     public class Task
     {
-        int id;
         string name;
-        string url;
-        string text;
-        string mail;
+        IAction action;
+        ICondition condition;
 
-        public Task(string _name, string _url, string _text, string _mail)
+        public Task() { }
+        public Task(string _name, IAction _action, ICondition _condition)
         {
-            Name = _name;
-            Url = _url;
-            Text = _text;
-            Mail = _mail;
+            name = _name;
+            Action = _action;
+            Condition = _condition;
         }
 
-        public Task() {}
         public string Name { get => name; set => name = value; }
-        public string Url { get => url; set => url = value; }
-        public string Text { get => text; set => text = value; }
-        public string Mail { get => mail; set => mail = value; }
-        public int Id { get => id; set => id = value; }
+        public IAction Action { get => action; set => action = value; }
+        public ICondition Condition { get => condition; set => condition = value; }
 
         public override string ToString()
         {
-            return string.Format("{0}, {1} {2} {3}",
-                "Name task: " + this.Name, "URL: " + this.Url, "String: " + this.Text, "E-mail: " + this.Mail);
+            return string.Format("{0}, {1} {2}",
+                "Name task: " + this.Name, "Condition: " + this.Condition.ToString(), "Action: " + this.Action.ToString());
         }
+
+        public bool Do()
+        {
+            if (Condition.Check())
+            {
+                Action.Do();
+                return true;
+            }
+            return false;
+        }        
     }
 }

@@ -1,26 +1,14 @@
 ﻿//Autorzy Mordal Paweł, Damian Szczepański
 
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using HtmlAgilityPack;
-using System.Net.Mail;
-using System.Net;
-using System.IO;
-using System.Xml.Serialization;
-using System.Xml;
 
 namespace WindowsFormsApp2
 {
     public partial class Form1 : Form
     {
-        private BindingList<ITask> TaskList = new BindingList<ITask>();
+        private BindingList<Task> TaskList = new BindingList<Task>();
 
         public void LogFctn(string description)
         {
@@ -41,7 +29,7 @@ namespace WindowsFormsApp2
             this.Enabled = false;
             this.Refresh();
             int counter = 0;
-            foreach (ITask task in TaskList)
+            foreach (Task task in TaskList)
             {
                 try
                 {
@@ -65,7 +53,7 @@ namespace WindowsFormsApp2
         {
             IAction action;
             ICondition condition;
-            ITask itask;
+            Task itask;
             if (tabControl1.TabPages[0] == tabControl1.SelectedTab)                
                 condition = new ImageSearch(URLTextbox.Text, TextTextbox.Text);                    
             else                
@@ -76,7 +64,7 @@ namespace WindowsFormsApp2
             else
                 action = new DisplayInfo();
 
-            itask = new ITask(Nazwatextbox.Text, action, condition);
+            itask = new Task(Nazwatextbox.Text, action, condition);
                 
                 
             TaskList.Add(itask);
