@@ -35,14 +35,13 @@ namespace WindowsFormsApp2
             var tempDouble = (welcome.Main.Temp - 273.15);
             var url = $"http://openweathermap.org/img/w/{welcome.Weather[0].Icon}.png";
             var com = welcome.Weather[0].Description;
-            File.WriteAllText(@"./atturl.txt", url + "\r\n" + com + tempDouble.ToString());
-            if (tempDouble > Convert.ToDouble(TemperatureThreshold))
+            File.WriteAllText(@"./atturl.txt", url + "\r\n" + "Weather in " + city + ": " + com + ", temperature: " + Math.Round(tempDouble, 2).ToString() + "°C.");
+            if (tempDouble <= Convert.ToDouble(TemperatureThreshold))
             {
-                return true;
-            } else
-            {
-                return false;
-            }           
+                throw new ArgumentException("String not found", "arg");
+            }
+
+            return true;
         }
     }
 }

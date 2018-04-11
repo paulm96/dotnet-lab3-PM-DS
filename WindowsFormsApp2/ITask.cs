@@ -25,11 +25,14 @@ namespace WindowsFormsApp2
         //internal ICondition Condition { get => condition; set => condition = value; }
         public IAction Action { get => action; set => action = value; }
         public ICondition Condition { get => condition; set => condition = value; }
-        public void Do()
+        public bool Do()
         {
-            if(Condition.Check())
+            if (Condition.Check())
+            {
                 Action.Do();
-
+                return true;
+            }
+            return false;
         }
 
         public override string ToString()

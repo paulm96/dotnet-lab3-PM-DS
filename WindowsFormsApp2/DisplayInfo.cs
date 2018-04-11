@@ -29,8 +29,9 @@ namespace WindowsFormsApp2
 
         public override string ToString()
         {
-            return string.Format("");
-                
+            return string.Format("{0}",
+                "Display");
+
         }
 
 

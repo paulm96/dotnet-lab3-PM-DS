@@ -20,23 +20,43 @@ namespace WindowsFormsApp2
 {
     public partial class Form1 : Form
     {
-        private HTML html = new HTML();
-        private Mail mail;
         private BindingList<ITask> TaskList = new BindingList<ITask>();
+
+        public void LogFctn(string description)
+        {
+            DateTime localDate = DateTime.Now;                        
+            textBox3.AppendText(localDate.ToString("yyyy.MM.dd HH:mm:ss") + "  " + description + Environment.NewLine);
+        }
 
         public Form1()
         {
             InitializeComponent();
-            Log.log("\r\nProgram_start ", "yyyy.MM.dd HH:mm:ss");
+            LogFctn("Program starts");
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            LogFctn("Please wait...");
+            this.Enabled = false;
+            this.Refresh();
+            int counter = 0;
             foreach (ITask task in TaskList)
             {
-                task.Do();
+                try
+                {
+                    task.Do();                           
+                    LogFctn("Done! Task: " + task.ToString());
+                    counter++;                    
+                }
+                catch(Exception msg)
+                {
+                    Log.log(msg.ToString(), "HH:mm:ss");
+                    LogFctn("Something went wrong with task: " + task.ToString());
+                }
             }
-            
+
+            LogFctn(counter.ToString() + " of " + TaskList.Count.ToString() + " have been done!");
+            this.Enabled = true;
             //Stanlabel.Text = "";
             //var mailcounter = 0;
 
@@ -117,7 +137,7 @@ namespace WindowsFormsApp2
 
         private void Czyscbutton_Click(object sender, EventArgs e)
         {
-            Stanlabel.Text = "";
+            //Stanlabel.Text = "";
             TaskList.Clear();
             Tasklistbox.DataSource = TaskList;            
         }
@@ -129,7 +149,7 @@ namespace WindowsFormsApp2
             serializer.Serialize(fs, TaskList);
             fs.Close();
             Log.log("serialization BindingList ", "HH:mm:ss");
-            Stanlabel.Text = "Wykonano serializację";
+            //Stanlabel.Text = "Wykonano serializację";
         }
 
 
@@ -147,9 +167,8 @@ namespace WindowsFormsApp2
             Tasklistbox.DataSource = TaskList;
             fs.Close();
             Log.log("deserialization BindingList ", "HH:mm:ss");
-            Stanlabel.Text = "Wykonano deserializację";
+            //Stanlabel.Text = "Wykonano deserializację";
         }
-
 
     }
 }

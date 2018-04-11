@@ -30,19 +30,11 @@ namespace WindowsFormsApp2
 
         public override bool Check()
         {
-            HTML html = new HTML();   //ona byla private tam wyzej jako zmienna klasy
+            HTML html = new HTML();
             html.LoadHtml(TargetURL);
-            string attachmentURL;
-            try
-            {
-                attachmentURL = Searcher.SearchForSpecificString(SearchedText, html.Doc);
-            }
-            catch (ArgumentException msg)
-            {
-                return false;
-            }
-            //File.AppendAllText(@"./atturl.txt", attachmentURL);
-            File.WriteAllText(@"./atturl.txt", attachmentURL + "\r\n" + "Znaleziono demota :)");
+            Tuple<string, string> pair;                                
+            pair = Searcher.SearchForSpecificString(SearchedText, html.Doc);                        
+            File.WriteAllText(@"./atturl.txt", pair.Item1 + "\r\n" + pair.Item2);
             return true;
         }
     }

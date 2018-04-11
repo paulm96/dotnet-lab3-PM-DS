@@ -42,26 +42,23 @@
             this.Wykonajbutton = new System.Windows.Forms.Button();
             this.Tasklistbox = new System.Windows.Forms.ListBox();
             this.Dodajbutton = new System.Windows.Forms.Button();
-            this.Serialbutton = new System.Windows.Forms.Button();
             this.Czyscbutton = new System.Windows.Forms.Button();
             this.Nazwalabel = new System.Windows.Forms.Label();
             this.Nazwatextbox = new System.Windows.Forms.TextBox();
-            this.DeSerialbutton = new System.Windows.Forms.Button();
-            this.Stanlabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.label5 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -194,16 +191,6 @@
             this.Dodajbutton.UseVisualStyleBackColor = true;
             this.Dodajbutton.Click += new System.EventHandler(this.button2_Click);
             // 
-            // Serialbutton
-            // 
-            this.Serialbutton.Location = new System.Drawing.Point(662, 205);
-            this.Serialbutton.Name = "Serialbutton";
-            this.Serialbutton.Size = new System.Drawing.Size(75, 26);
-            this.Serialbutton.TabIndex = 15;
-            this.Serialbutton.Text = "Serialize";
-            this.Serialbutton.UseVisualStyleBackColor = true;
-            this.Serialbutton.Click += new System.EventHandler(this.Serialbutton_Click);
-            // 
             // Czyscbutton
             // 
             this.Czyscbutton.Location = new System.Drawing.Point(581, 176);
@@ -229,24 +216,6 @@
             this.Nazwatextbox.Name = "Nazwatextbox";
             this.Nazwatextbox.Size = new System.Drawing.Size(218, 20);
             this.Nazwatextbox.TabIndex = 18;
-            // 
-            // DeSerialbutton
-            // 
-            this.DeSerialbutton.Location = new System.Drawing.Point(662, 174);
-            this.DeSerialbutton.Name = "DeSerialbutton";
-            this.DeSerialbutton.Size = new System.Drawing.Size(75, 26);
-            this.DeSerialbutton.TabIndex = 19;
-            this.DeSerialbutton.Text = "De Serialize";
-            this.DeSerialbutton.UseVisualStyleBackColor = true;
-            this.DeSerialbutton.Click += new System.EventHandler(this.DeSerialbutton_Click_1);
-            // 
-            // Stanlabel
-            // 
-            this.Stanlabel.AutoSize = true;
-            this.Stanlabel.Location = new System.Drawing.Point(479, 265);
-            this.Stanlabel.Name = "Stanlabel";
-            this.Stanlabel.Size = new System.Drawing.Size(0, 13);
-            this.Stanlabel.TabIndex = 20;
             // 
             // label1
             // 
@@ -297,29 +266,14 @@
             this.tabPage2.Text = "Sprawdź pogodę ";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // label4
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 3);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(247, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Temperatura w tym mieście jest wyższa niż wartość";
-           
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(91, 28);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(160, 20);
-            this.textBox1.TabIndex = 1;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(91, 67);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(162, 20);
-            this.textBox2.TabIndex = 2;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 67);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(70, 13);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Temperatura:";
             // 
             // label3
             // 
@@ -330,20 +284,34 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Miasto:";
             // 
-            // label4
+            // textBox2
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 67);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(70, 13);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Temperatura:";
+            this.textBox2.Location = new System.Drawing.Point(91, 67);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(162, 20);
+            this.textBox2.TabIndex = 2;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(91, 28);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(160, 20);
+            this.textBox1.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 3);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(247, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Temperatura w tym mieście jest wyższa niż wartość";
             // 
             // tabControl2
             // 
             this.tabControl2.Controls.Add(this.tabPage3);
             this.tabControl2.Controls.Add(this.tabPage4);
-            this.tabControl2.Location = new System.Drawing.Point(109, 205);
+            this.tabControl2.Location = new System.Drawing.Point(105, 205);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
             this.tabControl2.Size = new System.Drawing.Size(364, 129);
@@ -361,7 +329,6 @@
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "Wyślij e-mail";
             this.tabPage3.UseVisualStyleBackColor = true;
-           
             // 
             // tabPage4
             // 
@@ -381,31 +348,30 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(154, 13);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Wyświetl komunikat na ektanie";
+            this.label5.Text = "Wyświetl komunikat na ekranie";
             // 
-            // listBox1
+            // textBox3
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(502, 247);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(235, 95);
-            this.listBox1.TabIndex = 1;
-            
+            this.textBox3.Location = new System.Drawing.Point(500, 252);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.textBox3.Size = new System.Drawing.Size(237, 120);
+            this.textBox3.TabIndex = 23;
+            this.textBox3.WordWrap = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(770, 413);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.tabControl2);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.Stanlabel);
-            this.Controls.Add(this.DeSerialbutton);
             this.Controls.Add(this.Nazwatextbox);
             this.Controls.Add(this.Nazwalabel);
             this.Controls.Add(this.Czyscbutton);
-            this.Controls.Add(this.Serialbutton);
             this.Controls.Add(this.Dodajbutton);
             this.Controls.Add(this.Tasklistbox);
             this.Controls.Add(this.Wykonajbutton);
@@ -414,7 +380,6 @@
             this.Controls.Add(this.Jezelilabel);
             this.Name = "Form1";
             this.Text = "Form1";
-            
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -446,12 +411,9 @@
         private System.Windows.Forms.Button Wykonajbutton;
         private System.Windows.Forms.ListBox Tasklistbox;
         private System.Windows.Forms.Button Dodajbutton;
-        private System.Windows.Forms.Button Serialbutton;
         private System.Windows.Forms.Button Czyscbutton;
         private System.Windows.Forms.Label Nazwalabel;
         private System.Windows.Forms.TextBox Nazwatextbox;
-        private System.Windows.Forms.Button DeSerialbutton;
-        private System.Windows.Forms.Label Stanlabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
@@ -465,7 +427,7 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }
 

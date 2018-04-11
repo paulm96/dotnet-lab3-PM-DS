@@ -11,7 +11,7 @@ namespace WindowsFormsApp2
     class Searcher
     {
 
-        public static string SearchForSpecificString(string key, HtmlAgilityPack.HtmlDocument doc)
+        public static Tuple<string,string> SearchForSpecificString(string key, HtmlAgilityPack.HtmlDocument doc)
         {            
                 var nodes = doc.DocumentNode.Descendants("img");
 
@@ -19,9 +19,12 @@ namespace WindowsFormsApp2
                 {
                     if (node.GetAttributeValue("alt", "").Contains(key))
                     {
+                    
                         string attachmentURL = node.GetAttributeValue("src", "");
+                        string description = node.GetAttributeValue("alt", "");
+                        Tuple<string, string> pair = new Tuple<string, string>(attachmentURL, description);
                         Log.log("string_found: " + key + ", attachment url: " + attachmentURL, "HH:mm:ss");
-                        return attachmentURL;
+                        return pair;
                     }
                 }
            
