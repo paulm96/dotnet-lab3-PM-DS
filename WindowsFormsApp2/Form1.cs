@@ -35,6 +35,7 @@ namespace WindowsFormsApp2
         {
             Stanlabel.Text = "";
             var mailcounter = 0;
+           
 
             foreach (Task task in TaskList)
             {
@@ -90,9 +91,12 @@ namespace WindowsFormsApp2
                 Stanlabel.Text = "Żadne pole nie powinno być puste!";
             else
             {
+                var ctx = new TaskDB();
                 Task task = new Task(Nazwatextbox.Text, URLTextbox.Text, TextTextbox.Text, MailTextbox.Text);
                 TaskList.Add(task);
                 Tasklistbox.DataSource = TaskList;
+                ctx.Tasks.Add(task);
+
             }
         }
 

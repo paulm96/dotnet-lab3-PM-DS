@@ -10,8 +10,10 @@ namespace WindowsFormsApp2
     {
         protected override void Seed(TaskDB context)
         {
-             Task task = new Task() { Name = "proces1", Url= "ssdsdas", Mail="damiansz8@interia.pl ", Text="koty za płoty" };
-           // task.Add();
+            
+            Task task = new Task() { Name = "proces1", Url= "ssdsdas", Mail="damiansz8@interia.pl ", Text="koty za płoty" };
+            // task.Add();
+            
             base.Seed(context);
 
         }

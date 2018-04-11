@@ -10,11 +10,13 @@ namespace WindowsFormsApp2
 {
     public class Task
     {
-        int id;
+        public int Id { get; set; }
         string name;
         string url;
         string text;
         string mail;
+
+        
         public Task(string _name, string _url, string _text, string _mail)
         {
             Name = _name;
@@ -27,7 +29,7 @@ namespace WindowsFormsApp2
         public string Url { get => url; set => url = value; }
         public string Text { get => text; set => text = value; }
         public string Mail { get => mail; set => mail = value; }
-        public int Id { get => id; set => id = value; }
+        //public int Id { get => id; set => id = value; }
 
         public override string ToString()
         {

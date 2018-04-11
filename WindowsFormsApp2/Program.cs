@@ -18,7 +18,9 @@ namespace WindowsFormsApp2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            TaskDB db = new TaskDB();
             Application.Run(new Form1());
+            
         }
     }
 }
