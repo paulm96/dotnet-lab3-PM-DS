@@ -21,10 +21,15 @@ namespace WindowsFormsApp2
         }
 
         public string Name { get => name; set => name = value; }
-        //internal IAction Action { get => action; set => action = value; }
-        //internal ICondition Condition { get => condition; set => condition = value; }
         public IAction Action { get => action; set => action = value; }
         public ICondition Condition { get => condition; set => condition = value; }
+
+        public override string ToString()
+        {
+            return string.Format("{0}, {1} {2}",
+                "Name task: " + this.Name, "Condition: " + this.Condition.ToString(), "Action: " + this.Action.ToString());
+        }
+
         public bool Do()
         {
             if (Condition.Check())
@@ -33,12 +38,6 @@ namespace WindowsFormsApp2
                 return true;
             }
             return false;
-        }
-
-        public override string ToString()
-        {
-            return string.Format("{0}, {1} {2}",
-                "Name task: " + this.Name, "Condition: " + this.Condition.ToString(), "Action: " + this.Action.ToString());
-        }
+        }        
     }
 }

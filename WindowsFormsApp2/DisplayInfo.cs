@@ -13,11 +13,9 @@ namespace WindowsFormsApp2
     {
         public override void Do()
         {
-            //Application.Run(new Info());
             string url;
             string description;
             Info info = new Info();
-            info.Show();
             using (StreamReader sr = new StreamReader("./atturl.txt"))
             {
                 url = sr.ReadLine();
@@ -25,6 +23,7 @@ namespace WindowsFormsApp2
             }            
             new WebClient().DownloadFile(url, "./image.png");
             info.set(description, "./image.png");
+            info.Show();
         }
 
         public override string ToString()

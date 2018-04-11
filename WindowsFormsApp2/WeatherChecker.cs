@@ -38,7 +38,7 @@ namespace WindowsFormsApp2
             File.WriteAllText(@"./atturl.txt", url + "\r\n" + "Weather in " + city + ": " + com + ", temperature: " + Math.Round(tempDouble, 2).ToString() + "°C.");
             if (tempDouble <= Convert.ToDouble(TemperatureThreshold))
             {
-                throw new ArgumentException("String not found", "arg");
+                throw new ArgumentException("Condition wan not met for " + city + ", temp: " + temperatureThreshold, "arg");
             }
 
             return true;

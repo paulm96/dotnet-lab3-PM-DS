@@ -21,6 +21,8 @@ namespace WindowsFormsApp2
                     {
                     
                         string attachmentURL = node.GetAttributeValue("src", "");
+                        if (!attachmentURL.Contains("https"))
+                            continue;
                         string description = node.GetAttributeValue("alt", "");
                         Tuple<string, string> pair = new Tuple<string, string>(attachmentURL, description);
                         Log.log("string_found: " + key + ", attachment url: " + attachmentURL, "HH:mm:ss");
@@ -28,7 +30,7 @@ namespace WindowsFormsApp2
                     }
                 }
            
-            throw new ArgumentException("String not found", "arg");
+            throw new ArgumentException("String '" + key + "' was not found", "arg");
         }
     }
 }
